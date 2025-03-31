@@ -1,0 +1,1648 @@
+:root {
+    --mitosis-blue: #3498db;
+    --meiosis-red: #e74c3c;
+    --interphase-purple: #9b59b6;
+    --light-bg: #f8f9fa;
+    --dark-text: #2c3e50;
+}
+/* Smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, var(--mitosis-blue), var(--meiosis-red));
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Navigation Styles */
+.main-nav {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0 0.5rem;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #2c3e50;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #f8f9fa;
+    color: #3498db;
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #2c3e50;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .hamburger.active .hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link {
+        padding: 1rem;
+    }
+}
+
+.hero {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.hero p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--mitosis-blue);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn-meiosis {
+    background-color: var(--meiosis-red);
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 350px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.mitosis-img {
+    background-image: url('assets/mitosis.jpg');
+}
+
+.meiosis-img {
+    background-image: url('assets/meosis.jpg');
+}
+
+.interphase-img {
+    background-image: url('assets/inter.jpg');
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+}
+
+.card.mitosis h3 {
+    color: var(--mitosis-blue);
+}
+
+.card.meiosis h3 {
+    color: var(--meiosis-red);
+}
+
+.card.interphase h3 {
+    color: var(--interphase-purple);
+}
+
+section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--mitosis-blue), var(--meiosis-red));
+    margin: 1rem auto 0;
+}
+
+.mitosis-stages, .meiosis-stages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stage {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.stage:hover {
+    transform: translateY(-5px);
+}
+
+.stage.mitosis {
+    border-top: 4px solid var(--mitosis-blue);
+}
+
+.stage.meiosis {
+    border-top: 4px solid var(--meiosis-red);
+}
+
+.stage h4 {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.stage-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.mitosis .stage-icon {
+    background-color: var(--mitosis-blue);
+}
+
+.meiosis .stage-icon {
+    background-color: var(--meiosis-red);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.comparison-table th, .comparison-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.comparison-table th {
+    background-color: var(--dark-text);
+    color: white;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.mitosis-bg {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.meiosis-bg {
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+.interactive-lab {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 2rem 0;
+}
+
+.lab-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.lab-controls {
+    flex: 1;
+    min-width: 300px;
+}
+
+.lab-visualization {
+    flex: 2;
+    min-width: 300px;
+    height: 400px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.chromosome {
+    position: absolute;
+    width: 20px;
+    height: 80px;
+    background-color: var(--mitosis-blue);
+    border-radius: 10px;
+    cursor: grab;
+}
+
+.chromosome::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 10px 10px 0 0;
+}
+
+.centromere {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #f1c40f;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.spindle-fiber {
+    position: absolute;
+    height: 2px;
+    background-color: #7f8c8d;
+    transform-origin: left center;
+    z-index: 1;
+}
+
+footer {
+    background-color: var(--dark-text);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav li {
+        margin: 0.5rem 0;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+/* Introduction Section */
+#introduction {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 4rem 0;
+    background: url('assets/cell.gif') no-repeat center center/cover;
+}
+
+/* Glassmorphism Overlay for the GIF */
+#introduction::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    -webkit-backdrop-filter: blur(10px); /* Blur effect for glassmorphism on Safari */
+    backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+    z-index: 1; /* Behind content but above GIF */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border */
+}
+
+/* Content Styling */
+.content {
+    position: relative;
+    z-index: 2; /* Above the glass overlay */
+    border-radius: 15px;
+    padding: 2rem 3rem;
+    max-width: 600px;
+    text-align: center;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    white-space: nowrap; 
+}
+
+/* Fade-in Animation */
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Text Styling */
+.text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    text-align: center; /* Ensure text is centered */
+}
+
+/* Button Styling */
+.content .btn {
+    background-color: var(--meiosis-red);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 3rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.content .btn:hover {
+    background-color: #d14644;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Styling (unchanged) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    position: relative;
+    background: #fff;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    font-size: 1.5rem;
+    color: var(--dark-text);
+    margin: 0;
+}
+
+.close-btn {
+    font-size: 1.8rem;
+    color: #888;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--meiosis-red);
+}
+
+.modal-body {
+    padding: 20px 0;
+}
+
+.modal-body video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        padding: 1.5rem 2rem;
+    }
+
+    .text {
+        font-size: 2rem;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+
+
+/* Interphase Section Styles */
+#interphase-preparation {
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+}
+
+.interphase-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.interphase-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.interphase-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+}
+
+.highlight {
+    background-color: rgba(155, 89, 182, 0.2);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #9b59b6;
+}
+
+.interphase-diagram {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.diagram-item {
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.dna-img {
+    height: 200px;
+    background-image: url('assets/1.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Animation for chromatin condensation */
+.dna-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.dna-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.8) 50%, 
+        rgba(255,255,255,0) 100%);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .interphase-content {
+        flex-direction: column;
+    }
+    
+    .interphase-text, 
+    .interphase-diagram {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .dna-img {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    #interphase-preparation {
+        padding: 2rem 0;
+    }
+    
+    .interphase-text {
+        padding: 1.5rem;
+    }
+    
+    .interphase-text p {
+        font-size: 1rem;
+    }
+}
+
+/* Cell Division Introduction Section */
+.intro-section {
+    background-color: #fff;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(52, 152, 219, 0.1) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.intro-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.intro-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.intro-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.division-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.division-card {
+    flex: 1;
+    min-width: 250px;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.division-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.mitosis-card {
+    border-top: 4px solid #3498db;
+}
+
+.meiosis-card {
+    border-top: 4px solid #e74c3c;
+}
+
+.division-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.mitosis-card .division-icon {
+    background-color: #3498db;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.meiosis-card .division-icon {
+    background-color: #e74c3c;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.division-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.division-card p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+.intro-image {
+    flex: 1;
+    min-width: 300px;
+    height: 400px;
+    position: relative;
+}
+
+.cell-animation {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #f40e0e 0%, #2980b9 100%);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+    animation: pulse 4s infinite alternate;
+}
+
+
+.cell-animation::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    border: 2px dashed rgba(255,255,255,0.3);
+}
+
+.cell-animation::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    height: 30%;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: nucleolus 3s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+@keyframes nucleolus {
+    0% { opacity: 0.8; }
+    100% { opacity: 0.4; }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .intro-content {
+        flex-direction: column;
+    }
+    
+    .intro-image {
+        height: 350px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-section {
+        padding: 3rem 0;
+    }
+    
+    .division-types {
+        flex-direction: column;
+    }
+    
+    .division-card {
+        min-width: 100%;
+    }
+    
+    .intro-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-image {
+        height: 250px;
+    }
+    
+    .division-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}/* Interphase Phases Section */
+.phases-section {
+    background-color: #f8f9fa;
+    padding: 5rem 0;
+}
+
+.phase-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.phase-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.phase-card:hover {
+    transform: translateY(-10px);
+}
+
+.phase-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 3rem;
+    font-weight: bold;
+    opacity: 0.1;
+    color: #2c3e50;
+}
+
+.phase-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.phase-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: currentColor;
+}
+
+.phase-card p {
+    color: #7f8c8d;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.phase-icon {
+    font-size: 2rem;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Phase-specific styles */
+.g1-phase {
+    border-top: 4px solid #3498db;
+    color: #3498db;
+}
+
+.g1-phase .phase-icon {
+    background-color: #3498db;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.s-phase {
+    border-top: 4px solid #9b59b6;
+    color: #9b59b6;
+}
+
+.s-phase .phase-icon {
+    background-color: #9b59b6;
+    box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
+}
+
+.g2-phase {
+    border-top: 4px solid #2ecc71;
+    color: #2ecc71;
+}
+
+.g2-phase .phase-icon {
+    background-color: #2ecc71;
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}
+
+/* Mitotic Phase Section */
+.mitotic-section {
+    background-color: white;
+    padding: 5rem 0;
+}
+
+.mitotic-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.mitotic-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.mitotic-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 2rem;
+    
+}
+
+.cell-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.cell-type {
+    flex: 1;
+    min-width: 150px;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+}
+
+.cell-type h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.fast-dividing {
+    border-color: #f39c12;
+}
+
+.fast-dividing h4 {
+    color: #f39c12;
+}
+
+.slow-dividing {
+    border-color: #3498db;
+}
+
+.slow-dividing h4 {
+    color: #3498db;
+}
+
+.non-dividing {
+    border-color: #e74c3c;
+}
+
+.non-dividing h4 {
+    color: #e74c3c;
+}
+
+.chromosome-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.chromosome-type {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+.chromosome-visual {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem auto;
+    color: white;
+}
+
+.diploid {
+    background-color: #3498db;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.haploid {
+    background-color: #e74c3c;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.mitotic-visual {
+    flex: 1;
+    min-width: 300px;
+    height: 400px;
+    position: relative;
+}
+
+.cell-division-animation {
+    width: 100%;
+    height: 100%;
+    background: #f1f1f1;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Animation elements */
+.cell-nucleus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px dashed rgba(52, 152, 219, 0.3);
+}
+
+.chromosome-pair {
+    position: absolute;
+    width: 15px;
+    height: 60px;
+    background: #2c3e50;
+    border-radius: 8px;
+}
+
+.chromosome-pair::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: rgba(255,255,255,0.3);
+    border-radius: 8px 8px 0 0;
+}
+
+.chromosome-pair:nth-child(2) {
+    top: 40%;
+    left: 30%;
+    transform: rotate(30deg);
+}
+
+.chromosome-pair:nth-child(3) {
+    top: 40%;
+    right: 30%;
+    transform: rotate(-30deg);
+}
+
+.spindle-fibers {
+    position: absolute;
+    width: 2px;
+    height: 80%;
+    background: #7f8c8d;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.spindle-fibers::before,
+.spindle-fibers::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #7f8c8d;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.spindle-fibers::before {
+    top: 0;
+}
+
+.spindle-fibers::after {
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .mitotic-content {
+        flex-direction: column;
+    }
+    
+    .mitotic-visual {
+        height: 350px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .phases-section,
+    .mitotic-section {
+        padding: 3rem 0;
+    }
+    
+    .phase-card {
+        min-width: 100%;
+    }
+    
+    .mitotic-visual {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .phase-card {
+        padding: 2rem;
+    }
+    
+    .mitotic-visual {
+        height: 250px;
+    }
+    
+    .cell-type {
+        min-width: 100%;
+    }
+}
+
+/* Visual Guide Section */
+.vs-guide-section {
+    background-color: #f8f9fa;
+    padding: 5rem 0;
+}
+
+.vs-guide-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.vs-guide-card {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.vs-guide-card:hover {
+    transform: translateY(-10px);
+}
+
+.vs-guide-number {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    z-index: 2;
+}
+
+.vs-guide-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Image placeholders - replace with your actual images */
+.prophase-img {
+    background-image: url('assets/pro.jpg');
+    background-color: #e3f2fd; /* Fallback color */
+}
+
+.metaphase-img {
+    background-image: url('assets/meta.jpg');
+    background-color: #bbdefb;
+}
+
+.anaphase-img {
+    background-image: url('assets/ana.jpg');
+    background-color: #90caf9;
+}
+
+.telophase-img {
+    background-image: url('assets/telo.jpg');
+    background-color: #64b5f6;
+}
+
+.vs-guide-name {
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.2rem;
+    background: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vs-guide-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .vs-guide-image {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vs-guide-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .vs-guide-section {
+        padding: 3rem 0;
+    }
+}
+
+/* Ladder Style Mitosis Section */
+.ladder-section {
+    background-color: #f8fafc;
+    padding: 4rem 0;
+}
+
+.ladder-container {
+    position: relative;
+    max-width: 800px;
+    margin: 3rem auto 0;
+    padding-left: 60px;
+}
+
+.ladder-line {
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, 
+        #9b59b6, 
+        #3498db, 
+        #2ecc71, 
+        #f1c40f, 
+        #e67e22, 
+        #e74c3c);
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.ladder-stage {
+    position: relative;
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: center;
+    z-index: 2;
+}
+
+.stage-content {
+    flex: 1;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    margin-right: 2rem;
+    transition: all 0.3s ease;
+}
+
+.ladder-stage:hover .stage-content {
+    transform: translateX(10px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stage-number {
+    position: absolute;
+    left: -50px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    z-index: 3;
+}
+
+.stage-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border: 3px solid white;
+}
+
+/* Stage-specific colors */
+.interphase .stage-number { background-color: #9b59b6; }
+.prophase .stage-number { background-color: #3498db; }
+.ilprophase .stage-number { background-color: #1c08ff; }
+.metaphase .stage-number { background-color: #2ecc71; }
+.anaphase .stage-number { background-color: #f1c40f; }
+.telophase .stage-number { background-color: #e67e22; }
+.cytokinesis .stage-number { background-color: #e74c3c; }
+
+.interphase .stage-image { background-color: #f3e8fd; background-image: url('assets/int.jpg'); }
+.prophase .stage-image { background-color: #e1f0fa; background-image: url('assets/prop.jpg'); }
+.ilprophase .stage-image { background-color: #e1e2fa; background-image: url('assets/lpro.jpg'); }
+.metaphase .stage-image { background-color: #e8f8f0; background-image: url('assets/met.jpg'); }
+.anaphase .stage-image { background-color: #fef9e7; background-image: url('assets/anap.jpg'); }
+.telophase .stage-image { background-color: #fdebd0; background-image: url('assets/telop.jpg'); }
+.cytokinesis .stage-image { background-color: #fadbd8; background-image: url('assets/cyt.jpg'); }
+
+/* Content styling */
+.stage-content h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.stage-content p {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .ladder-container {
+        padding-left: 50px;
+    }
+    
+    .stage-content {
+        margin-right: 1rem;
+        padding: 1.2rem;
+    }
+    
+    .stage-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+    .ladder-stage {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .stage-image {
+        margin-top: 1rem;
+        margin-left: 1.5rem;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .ladder-line {
+        left: 30px;
+    }
+    
+    .stage-number {
+        left: -40px;
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+}/* References Section */
+.references-section {
+    background-color: #f8fafc;
+    padding: 4rem 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+.references-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.reference-category {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.category-title {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.category-title i {
+    color: #3498db;
+}
+
+.reference-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.reference-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.reference-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.reference-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.reference-detail {
+    font-size: 0.9rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.reference-list a {
+    color: #3498db;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    display: inline-block;
+    margin: 0.2rem 0;
+}
+
+.reference-list a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+    transform: translateX(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .references-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .reference-category {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .references-section {
+        padding: 3rem 0;
+    }
+    
+    .category-title {
+        font-size: 1.1rem;
+    }
+    
+    .reference-detail {
+        font-size: 0.85rem;
+    }
+}

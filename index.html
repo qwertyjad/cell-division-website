@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cell Division Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Cell Division Explorer</h1>
+            <p class="subtitle">Understanding Mitosis and Meiosis</p>
+        </div>
+    </header>
+    
+    <nav class="main-nav">
+        <div class="nav-container">
+            <!-- Logo or site title -->
+            <div class="nav-brand">Cell Division</div>
+            
+            <!-- Hamburger menu button -->
+            <button class="hamburger" id="hamburger" title="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <!-- Navigation links -->
+            <ul class="nav-menu" id="nav-menu">
+                
+                <li class="nav-item"><a href="#introduction" class="nav-link">Introduction</a></li>
+                <li class="nav-item"><a href="#overview" class="nav-link">Overview</a></li>
+                <li class="nav-item"><a href="#mitosis" class="nav-link">Mitosis</a></li>
+                <li class="nav-item"><a href="#meiosis" class="nav-link">Meiosis</a></li>
+                <li class="nav-item"><a href="#comparison" class="nav-link">Comparison</a></li>
+                <li class="nav-item"><a href="#references" class="nav-link">References</a></li>
+            </ul>
+        </div>
+    </nav>
+
+  <!-- Add this section to your existing HTML, e.g., before #overview -->
+  <section id="introduction">
+    <div class="content fade-in">
+        <div class="text">Cell Division: Mitosis and Meiosis</div>
+        <a href="assets/cell division.mp4" class="btn" onclick="event.preventDefault(); openModal('assets/cell division.mp4', 'video', 'imageModal')">Watch Video</a>
+    </div>
+</section>
+
+<div id="imageModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Cell Division Video</h2>
+            <button class="close-btn" onclick="closeModal('imageModal')">&times;</button>
+        </div>
+        <div class="modal-body">
+        </div>
+    </div>
+</div>
+
+<!-- Add this JavaScript at the end of your existing script tag or in a separate .js file -->
+<script>
+function openModal(src, type, modalId) {
+    const modal = document.getElementById(modalId);
+    const modalBody = modal.querySelector('.modal-body');
+    
+    if (type === 'video') {
+        modalBody.innerHTML = `
+            <video controls autoplay>
+                <source src="${src}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        `;
+    }
+    
+    modal.style.display = 'flex';
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal(modalId);
+        }
+    });
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    const modalBody = modal.querySelector('.modal-body');
+    modal.style.display = 'none';
+    modalBody.innerHTML = ''; // Clear content to stop video
+}
+</script>
+<!-- Add this after the #introduction section -->
+
+<section id="cell-division-intro" class="intro-section">
+    <div class="container">
+        <h2 class="section-title">Cell Division</h2>
+        <div class="intro-content">
+            <div class="intro-text">
+                <p>Cell division is one of the most fascinating and dramatic processes in living organisms. From the smallest to the largest, all organisms undergo cell division. In multicellular organisms, it is essential for growth, tissue repair, and cell replacement.</p>
+                
+                <div class="division-types">
+                    <div class="division-card mitosis-card">
+                        <div class="division-icon">
+                            <i class="fas fa-copy"></i>
+                        </div>
+                        <h3>Mitosis</h3>
+                        <p>Occurs in somatic cells, driving growth (e.g., a baby developing into a teenager) and healing (e.g., repairing a cut).</p>
+                    </div>
+                    
+                    <div class="division-card meiosis-card">
+                        <div class="division-icon">
+                            <i class="fas fa-venus-mars"></i>
+                        </div>
+                        <h3>Meiosis</h3>
+                        <p>Occurs in the ovaries and testes, producing gametes (sperm and egg cells) for reproduction.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="intro-image">
+                <div class="cell-animation"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="interphase-preparation">
+    <div class="container">
+        <h2 class="section-title">Interphase: Preparation for Cell Division</h2>
+        <div class="interphase-content">
+            <div class="interphase-text">
+                <p>During interphase, chromosomes exist as <span class="highlight">chromatin</span>—a thin, fibrous form of DNA wound around histone proteins. After interphase, chromatin condenses into compact sister chromatids, facilitated by the condensin protein complex.</p>
+            </div>
+            <div class="interphase-diagram">
+                <div class="diagram-item">
+                    <div class="diagram-img dna-img"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section id="overview">
+        <div class="container">
+            <div class="hero">
+                <h2>Discover the Fascinating Process of Cell Division</h2>
+                <p>From the smallest to largest organisms, all living things undergo cell division. Explore how cells multiply through mitosis and meiosis to enable growth, repair, and reproduction.</p>
+                <a href="#mitosis" class="btn">Learn About Mitosis</a>
+                <a href="#meiosis" class="btn btn-meiosis">Explore Meiosis</a>
+            </div>
+            
+            <div class="card-container">
+                <div class="card mitosis">
+                    <div class="card-img mitosis-img"></div>
+                    <div class="card-content">
+                        <h3>Mitosis</h3>
+                        <p>The process of cell division that results in two genetically identical daughter cells. Essential for growth and repair in multicellular organisms.</p>
+                    </div>
+                </div>
+                
+                <div class="card meiosis">
+                    <div class="card-img meiosis-img"></div>
+                    <div class="card-content">
+                        <h3>Meiosis</h3>
+                        <p>A special type of cell division that produces gametes (sex cells) with half the number of chromosomes, enabling sexual reproduction.</p>
+                    </div>
+                </div>
+                
+                <div class="card interphase">
+                    <div class="card-img interphase-img"></div>
+                    <div class="card-content">
+                        <h3>Interphase</h3>
+                        <p>The preparatory phase where the cell grows, replicates its DNA, and prepares for division. Includes G1, S, and G2 phases.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="interphase-phases" class="phases-section">
+        <div class="container">
+            <h2 class="section-title">Three Phases of Interphase</h2>
+            
+            <div class="phase-cards">
+                <!-- G1 Phase -->
+                <div class="phase-card g1-phase">
+                    <div class="phase-number">1</div>
+                    <h3>First Gap Phase (G₁ Phase)</h3>
+                    <p>The primary growth period following cytokinesis and preceding DNA synthesis. The cell grows, synthesizes proteins, and produces organelles.</p>
+                    <div class="phase-icon">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                </div>
+                
+                <!-- S Phase -->
+                <div class="phase-card s-phase">
+                    <div class="phase-number">2</div>
+                    <h3>Synthesis Phase (S Phase)</h3>
+                    <p>DNA replication occurs, duplicating chromosomes into sister chromatids. Histones and other materials vital for chromosome replication are synthesized.</p>
+                    <div class="phase-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                </div>
+                
+                <!-- G2 Phase -->
+                <div class="phase-card g2-phase">
+                    <div class="phase-number">3</div>
+                    <h3>Second Gap Phase (G₂ Phase)</h3>
+                    <p>Bridges DNA synthesis and cell division. Cells synthesize organelles and materials crucial for division.</p>
+                    <div class="phase-icon">
+                        <i class="fas fa-forward"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="mitotic-phase" class="mitotic-section">
+        <div class="container">
+            <h2 class="section-title">Mitotic Phase: Cell Division</h2>
+            
+            <div class="mitotic-content">
+                <div class="mitotic-text">
+                    <p>Cells in the body are constantly replaced through division—bone cells create new bone cells, skin cells generate new skin cells. At this moment, thousands of cells are being renewed.</p>
+                    
+                    <div class="cell-types">
+                        <div class="cell-type fast-dividing">
+                            <h4><i class="fas fa-bolt"></i> Rapid Division</h4>
+                            <p>Skin cells, red blood cells</p>
+                        </div>
+                        
+                        <div class="cell-type slow-dividing">
+                            <h4><i class="fas fa-turtle"></i> Slow Division</h4>
+                            <p>Nerve cells, brain cells</p>
+                        </div>
+                        
+                        <div class="cell-type non-dividing">
+                            <h4><i class="fas fa-ban"></i> Non-Dividing</h4>
+                            <p>Muscle cells (grow without dividing)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chromosome-info">
+                        <div class="chromosome-type">
+                            <h4>Somatic Cells</h4>
+                            <p>Diploid (2n)</p>
+                            <div class="chromosome-visual diploid">46</div>
+                            <p>46 chromosomes in humans</p>
+                        </div>
+                        
+                        <div class="chromosome-type">
+                            <h4>Germ Cells</h4>
+                            <p>Haploid (n)</p>
+                            <div class="chromosome-visual haploid">23</div>
+                            <p>23 chromosomes in gametes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mitotic-visual">
+                    <div class="cell-division-animation">
+                        <div class="cell-nucleus"></div>
+                        <div class="chromosome-pair"></div>
+                        <div class="chromosome-pair"></div>
+                        <div class="spindle-fibers"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="mitosis">
+        <div class="container">
+            <h2 class="section-title">Mitosis: Cell Division for Growth and Repair</h2>
+            <p>Mitosis is the process by which somatic (body) cells divide to produce two identical daughter cells. This ensures that each new cell receives an exact copy of the parent cell's genetic material.</p>
+            
+            <div class="mitosis-stages">
+                <div class="stage mitosis">
+                    <h4><span class="stage-icon">1</span>Prophase</h4>
+                    <p>Chromatin condenses into chromosomes, nuclear membrane breaks down, spindle fibers form.</p>
+                </div>
+                
+                <div class="stage mitosis">
+                    <h4><span class="stage-icon">2</span>Metaphase</h4>
+                    <p>Chromosomes align at the cell's equator, attached to spindle fibers at their centromeres.</p>
+                </div>
+                
+                <div class="stage mitosis">
+                    <h4><span class="stage-icon">3</span>Anaphase</h4>
+                    <p>Sister chromatids separate and move to opposite poles of the cell.</p>
+                </div>
+                
+                <div class="stage mitosis">
+                    <h4><span class="stage-icon">4</span>Telophase</h4>
+                    <p>Nuclear membranes reform, chromosomes decondense, cytokinesis divides the cytoplasm.</p>
+                </div>
+            </div>
+        </div>
+        <section id="mitosis-visual-guide" class="vs-guide-section">
+            <div class="container">
+                <h2 class="section-title">Mitosis Visual Guide</h2>
+                
+                <div class="vs-guide-gallery">
+                    <!-- Prophase -->
+                    <div class="vs-guide-card">
+                        <div class="vs-guide-number">1</div>
+                        <div class="vs-guide-image prophase-img"></div>
+                        <div class="vs-guide-name">Prophase</div>
+                    </div>
+                    
+                    <!-- Metaphase -->
+                    <div class="vs-guide-card">
+                        <div class="vs-guide-number">2</div>
+                        <div class="vs-guide-image metaphase-img"></div>
+                        <div class="vs-guide-name">Metaphase</div>
+                    </div>
+                    
+                    <!-- Anaphase -->
+                    <div class="vs-guide-card">
+                        <div class="vs-guide-number">3</div>
+                        <div class="vs-guide-image anaphase-img"></div>
+                        <div class="vs-guide-name">Anaphase</div>
+                    </div>
+                    
+                    <!-- Telophase -->
+                    <div class="vs-guide-card">
+                        <div class="vs-guide-number">4</div>
+                        <div class="vs-guide-image telophase-img"></div>
+                        <div class="vs-guide-name">Telophase</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    
+    
+    <section id="meiosis">
+        <div class="container">
+            <h2 class="section-title">Meiosis: Production of Gametes</h2>
+            <p>Meiosis involves two successive cell divisions (Meiosis I and II) that reduce the chromosome number by half, producing four genetically unique haploid cells.</p>
+            
+            <div class="meiosis-stages">
+                <div class="stage meiosis">
+                    <h4><span class="stage-icon">I</span>Prophase I</h4>
+                    <p>Homologous chromosomes pair up (synapsis) and may exchange genetic material (crossing over).</p>
+                </div>
+                
+                <div class="stage meiosis">
+                    <h4><span class="stage-icon">I</span>Metaphase I</h4>
+                    <p>Homologous chromosome pairs align at the metaphase plate as tetrads.</p>
+                </div>
+                
+                <div class="stage meiosis">
+                    <h4><span class="stage-icon">I</span>Anaphase I</h4>
+                    <p>Homologous chromosomes separate and move to opposite poles (sister chromatids remain attached).</p>
+                </div>
+                
+                <div class="stage meiosis">
+                    <h4><span class="stage-icon">I</span>Telophase I</h4>
+                    <p>Two haploid cells form, each with duplicated chromosomes (sister chromatids).</p>
+                </div>
+            </div>
+            
+            <div class="meiosis-stages">
+                <div class="stage meiosis">
+                    <h4><span class="stage-icon">II</span>Prophase II</h4>
+                    <p>Spindle apparatus forms in each haploid cell from Meiosis I.</p>
+                </div>
+                
+                <div class="stage meiosis">
+                    <h4><span class="stage-icon">II</span>Metaphase II</h4>
+                    <p>Chromosomes align at the equator in each haploid cell.</p>
+                </div>
+                
+                <div class="stage meiosis">
+                    <h4><span class="stage-icon">II</span>Anaphase II</h4>
+                    <p>Sister chromatids separate and move to opposite poles.</p>
+                </div>
+                
+                <div class="stage meiosis">
+                    <h4><span class="stage-icon">II</span>Telophase II</h4>
+                    <p>Nuclear membranes reform, resulting in four genetically unique haploid gametes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="comparison">
+        <div class="container">
+            <h2 class="section-title">Mitosis vs. Meiosis</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Mitosis</th>
+                        <th>Meiosis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cell Type</td>
+                        <td class="mitosis-bg">Somatic cells (body cells)</td>
+                        <td class="meiosis-bg">Reproductive cells (gametes)</td>
+                    </tr>
+                    <tr>
+                        <td>Number of Divisions</td>
+                        <td class="mitosis-bg">One</td>
+                        <td class="meiosis-bg">Two (Meiosis I and II)</td>
+                    </tr>
+                    <tr>
+                        <td>Daughter Cells Produced</td>
+                        <td class="mitosis-bg">Two diploid cells</td>
+                        <td class="meiosis-bg">Four haploid cells</td>
+                    </tr>
+                    <tr>
+                        <td>Chromosome Alignment</td>
+                        <td class="mitosis-bg">Single file at metaphase</td>
+                        <td class="meiosis-bg">Homologous pairs (tetrads) in Meiosis I</td>
+                    </tr>
+                    <tr>
+                        <td>Genetic Variation</td>
+                        <td class="mitosis-bg">None (identical to parent)</td>
+                        <td class="meiosis-bg">Yes (crossing over and independent assortment)</td>
+                    </tr>
+                    <tr>
+                        <td>Purpose</td>
+                        <td class="mitosis-bg">Growth, repair, asexual reproduction</td>
+                        <td class="meiosis-bg">Sexual reproduction (gamete formation)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    
+
+    <section id="mitosis-ladder" class="ladder-section">
+        <div class="container">
+            <h2 class="section-title">The Stages of Mitosis</h2>
+            
+            <div class="ladder-container">
+                <!-- Vertical line -->
+                <div class="ladder-line"></div>
+                
+                <!-- Stages -->
+                <div class="ladder-stage interphase">
+                    <div class="stage-content">
+                        <div class="stage-number">1</div>
+                        <h3>Interphase</h3>
+                        <p>Cell prepares for division, DNA replicates</p>
+                    </div>
+                    <div class="stage-image"></div>
+                </div>
+                
+                <div class="ladder-stage prophase">
+                    <div class="stage-content">
+                        <div class="stage-number">2</div>
+                        <h3>Prophase</h3>
+                        <p>Chromatin condenses into chromosomes</p>
+                    </div>
+                    <div class="stage-image"></div>
+                </div>
+                <div class="ladder-stage ilprophase">
+                    <div class="stage-content">
+                        <div class="stage-number">3</div>
+                        <h3>In Late Prophase</h3>
+                        <p>Starts to Catch and put Together the Chromosomes</p>
+                    </div>
+                    <div class="stage-image"></div>
+                </div>
+                
+                <div class="ladder-stage metaphase">
+                    <div class="stage-content">
+                        <div class="stage-number">4</div>
+                        <h3>Metaphase</h3>
+                        <p>Chromosomes align at cell equator</p>
+                    </div>
+                    <div class="stage-image"></div>
+                </div>
+                
+                <div class="ladder-stage anaphase">
+                    <div class="stage-content">
+                        <div class="stage-number">5</div>
+                        <h3>Anaphase</h3>
+                        <p>Sister chromatids separate to poles</p>
+                    </div>
+                    <div class="stage-image"></div>
+                </div>
+                
+                <div class="ladder-stage telophase">
+                    <div class="stage-content">
+                        <div class="stage-number">6</div>
+                        <h3>Telophase</h3>
+                        <p>Nuclear membranes reform</p>
+                    </div>
+                    <div class="stage-image"></div>
+                </div>
+                
+                <div class="ladder-stage cytokinesis">
+                    <div class="stage-content">
+                        <div class="stage-number">7</div>
+                        <h3>Cytokinesis</h3>
+                        <p>Cytoplasm divides into two cells</p>
+                    </div>
+                    <div class="stage-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="references" class="references-section">
+        <div class="container">
+            <h2 class="section-title">References</h2>
+            
+            <div class="references-grid">
+                <!-- Book References -->
+                <div class="reference-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-book"></i> Textbooks
+                    </h3>
+                    <ul class="reference-list">
+                        <li>
+                            <span class="reference-title">RBS Science and Technology Series</span>
+                            <span class="reference-detail">Science Links 8</span>
+                            <span class="reference-detail">Lesson 13.1: The Cell cycle and Stages of Mitosis p.420</span>
+                            <span class="reference-detail">Lesson 13.2: Meiosis- Reproduction Of Gametes p.426</span>
+                            <span class="reference-detail">Revised Edition</span>
+                            <span class="reference-detail">ISBN 978-621-04-4673-9</span>
+                            <span class="reference-detail">Classification: Worktext (03-SB-00133-0)</span>
+                            <span class="reference-detail">Reprinted: February 2023</span>
+                        </li>
+                        <li>
+                            <span class="reference-title">Science in Today's World</span>
+                            <span class="reference-detail">Updated and Revised Edition 8</span>
+                            <span class="reference-detail">Chapter 14 Cellular Reproduction p.184-191</span>
+                            <span class="reference-detail">Copyright 2022</span>
+                            <span class="reference-detail">By Sibs Publishing House, Inc.</span>
+                            <span class="reference-detail">Eden Vela-Evangelista, et al.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Online References -->
+                <div class="reference-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-globe"></i> Online Resources
+                    </h3>
+                    <ul class="reference-list">
+                        <li>
+                            <a href="https://www.youtube.com/watch?v=-PfVNZedmGA" target="_blank" rel="noopener">
+                                YouTube: Mitosis and Meiosis Explained
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://askabiologist.asu.edu/Credits" target="_blank" rel="noopener">
+                                Ask A Biologist - Arizona State University
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://owlcation.com/stem/Stages-of-the-Cell-Cycle-Mitosis-Part-1-of-2" target="_blank" rel="noopener">
+                                Owlcation: Stages of the Cell Cycle
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.bioexplorer.net/divisions_of_biology/cell_biology/mitosis/" target="_blank" rel="noopener">
+                                BioExplorer: Mitosis Overview
+                            </a>
+                        </li>
+                        <li>
+                            <span class="reference-detail">Image Source: By Ali Zifan (CC BY-SA 4.0), via Wikimedia Commons</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>Cell Division Explorer © 2025</p>
+            <strong><p>Francis Jadei C Po | Daniella A David</p></strong>
+        </div>
+    </footer>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Modal functionality
+    const modal = document.getElementById('stage-modal');
+    const modalImg = document.querySelector('.modal-image');
+    const modalStageName = document.querySelector('.modal-stage-name');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // Click on zoom icon
+    document.querySelectorAll('.zoom-icon').forEach(icon => {
+        icon.addEventListener('click', function() {
+            const stageCard = this.closest('.stage-card');
+            const stageName = stageCard.querySelector('.stage-name').textContent;
+            const stageImg = stageCard.querySelector('.stage-image');
+            
+            // Set modal content
+            modalImg.src = stageImg.style.backgroundImage.slice(5, -2);
+            modalStageName.textContent = stageName;
+            
+            // Show modal
+            modal.style.display = 'flex';
+        });
+    });
+    
+    // Close modal
+    closeModal.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+    
+    // Close when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // Progress dots navigation
+    document.querySelectorAll('.dot').forEach(dot => {
+        dot.addEventListener('click', function() {
+            const stage = this.dataset.stage;
+            
+            // Update active dot
+            document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Scroll to corresponding card
+            const stageCard = document.querySelector(`.stage-card[data-stage="${stage}"]`);
+            stageCard.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        });
+    });
+});
+// Add this to your script.js file
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    // Mobile menu toggle
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Enhanced smooth scrolling with offset
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Close mobile menu if open
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            
+            // Get target section
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetSection = document.querySelector(targetId);
+            if (!targetSection) return;
+            
+            // Calculate scroll position with offset
+            const navHeight = document.querySelector('.main-nav').offsetHeight;
+            const targetPosition = targetSection.offsetTop - navHeight;
+            
+            // Smooth scroll
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Update URL without jumping
+            history.pushState(null, null, targetId);
+        });
+    });
+    
+    // Fallback for browsers that don't support scroll-behavior
+    if (!('scrollBehavior' in document.documentElement.style)) {
+        const smoothScroll = function(target) {
+            const navHeight = document.querySelector('.main-nav').offsetHeight;
+            const targetPosition = target.offsetTop - navHeight;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 500;
+            let start = null;
+            
+            window.requestAnimationFrame(step);
+            
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                const progress = timestamp - start;
+                window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+                if (progress < duration) window.requestAnimationFrame(step);
+            }
+        };
+        
+        const easeInOutCubic = function(t, b, c, d) {
+            t /= d/2;
+            if (t < 1) return c/2*t*t*t + b;
+            t -= 2;
+            return c/2*(t*t*t + 2) + b;
+        };
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) smoothScroll(targetSection);
+            });
+        });
+    }
+});
+</script>
+</body>
+</html>
