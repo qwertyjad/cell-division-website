@@ -575,6 +575,30 @@ function closeModal(modalId) {
             </div>
         </div>
     </section>
+    <section id="qr-section" class="qr-section">
+        <div class="container">
+            <h2 class="section-title">Quick Mobile Access</h2>
+            <div class="qr-content">
+                <div class="qr-description">
+                    <p>Scan this QR code to quickly access this cell division resource from your mobile device:</p>
+                    <ul class="qr-features">
+                        <li><i class="fas fa-mobile-alt"></i> Perfect for classroom use</li>
+                        <li><i class="fas fa-share-alt"></i> Easy to share with classmates</li>
+                        <li><i class="fas fa-bookmark"></i> Save for offline reference</li>
+                    </ul>
+                </div>
+                <div class="qr-code-container">
+                    <div class="qr-code">
+                        <!-- Replace with your actual QR code image -->
+                        <img src="assets/qr.png" alt="QR Code for Cell Division Website" width="200" height="200">
+                    </div>
+                    <button class="btn download-btn">
+                        <i class="fas fa-download"></i> Download QR Code
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="container">
             <p>Cell Division Explorer © 2025</p>
@@ -653,6 +677,31 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('active');
         });
     });
+});
+
+// Add this to your script.js file
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadBtn = document.querySelector('.download-btn');
+    
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function() {
+            // Replace with your actual QR code download functionality
+            const qrImg = document.querySelector('.qr-code img');
+            const link = document.createElement('a');
+            link.href = qrImg.src;
+            link.download = 'cell-division-qr-code.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Optional: Show download confirmation
+            const originalText = downloadBtn.innerHTML;
+            downloadBtn.innerHTML = '<i class="fas fa-check"></i> Downloaded!';
+            setTimeout(() => {
+                downloadBtn.innerHTML = originalText;
+            }, 2000);
+        });
+    }
 });
 </script>
 </body>
