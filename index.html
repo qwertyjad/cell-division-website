@@ -142,42 +142,126 @@ function closeModal(modalId) {
 </section>
 
 
-    <section id="overview">
-        <div class="container">
-            <div class="hero">
-                <h2>Discover the Fascinating Process of Cell Division</h2>
-                <p>From the smallest to largest organisms, all living things undergo cell division. Explore how cells multiply through mitosis and meiosis to enable growth, repair, and reproduction.</p>
-                <a href="#mitosis" class="btn">Learn About Mitosis</a>
-                <a href="#meiosis" class="btn btn-meiosis">Explore Meiosis</a>
+<section id="overview">
+    <div class="container">
+        <div class="hero">
+            <h2>Discover the Fascinating Process of Cell Division</h2>
+            <p>From the smallest to largest organisms, all living things undergo cell division. Explore how cells multiply through mitosis and meiosis to enable growth, repair, and reproduction.</p>
+            <a href="#mitosis" class="btn">Learn About Mitosis</a>
+            <a href="#meiosis" class="btn btn-meiosis">Explore Meiosis</a>
+        </div>
+        
+        <div class="card-container">
+            <div class="card mitosis">
+                <div class="card-img mitosis-img" onclick="openModal('assets/mitosis.jpg', 'image', 'imageModal', 'From the smallest to largest organisms, all living things undergo cell division. Explore how cells multiply through mitosis and meiosis to enable growth, repair, and reproduction.')"></div>
+                <div class="card-content">
+                    <h3>Mitosis</h3>
+                    <p>The process of cell division that results in two genetically identical daughter cells. Essential for growth and repair in multicellular organisms.</p>
+                </div>
             </div>
             
-            <div class="card-container">
-                <div class="card mitosis">
-                    <div class="card-img mitosis-img"></div>
-                    <div class="card-content">
-                        <h3>Mitosis</h3>
-                        <p>The process of cell division that results in two genetically identical daughter cells. Essential for growth and repair in multicellular organisms.</p>
-                    </div>
+            <div class="card meiosis">
+                <div class="card-img meiosis-img" onclick="openModal('assets/meosis.jpg', 'image', 'imageModal', 'A special type of cell division that produces gametes (sex cells) with half the number of chromosomes, enabling sexual reproduction.')"></div>
+                <div class="card-content">
+                    <h3>Meiosis</h3>
+                    <p>A special type of cell division that produces gametes (sex cells) with half the number of chromosomes, enabling sexual reproduction.</p>
                 </div>
-                
-                <div class="card meiosis">
-                    <div class="card-img meiosis-img"></div>
-                    <div class="card-content">
-                        <h3>Meiosis</h3>
-                        <p>A special type of cell division that produces gametes (sex cells) with half the number of chromosomes, enabling sexual reproduction.</p>
-                    </div>
-                </div>
-                
-                <div class="card interphase">
-                    <div class="card-img interphase-img"></div>
-                    <div class="card-content">
-                        <h3>Interphase</h3>
-                        <p>The preparatory phase where the cell grows, replicates its DNA, and prepares for division. Includes G1, S, and G2 phases.</p>
-                    </div>
+            </div>
+            
+            <div class="card interphase">
+                <div class="card-img interphase-img" onclick="openModal('assets/inter.jpg', 'image', 'imageModal', 'The preparatory phase where the cell grows, replicates its DNA, and prepares for division. Includes G1, S, and G2 phases.')"></div>
+                <div class="card-content">
+                    <h3>Interphase</h3>
+                    <p>The preparatory phase where the cell grows, replicates its DNA, and prepares for division. Includes G1, S, and G2 phases.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Modal Structure -->
+<div id="imageModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Cell Division Process</h2>
+            <button class="close-btn" onclick="closeModal('imageModal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <!-- Content will be dynamically inserted here -->
+        </div>
+    </div>
+</div>
+
+<!-- Updated JavaScript -->
+<script>
+function openModal(src, type, modalId, description) {
+    const modal = document.getElementById(modalId);
+    const modalBody = modal.querySelector('.modal-body');
+    const modalTitle = document.getElementById('modalTitle');
+
+    // Clear previous content
+    modalBody.innerHTML = '';
+
+    if (type === 'image') {
+        // Set title and create image and description elements
+        modalTitle.textContent = description.split(':')[0];
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = description;
+        img.style.width = '100%';
+        img.style.borderRadius = '10px';
+
+        const desc = document.createElement('p');
+        desc.textContent = description;
+        desc.style.marginTop = '15px';
+        desc.style.textAlign = 'center';
+        desc.style.fontSize = '1.1rem';
+        desc.style.color = '#333';
+
+        // Append elements to modal body
+        modalBody.appendChild(img);
+        modalBody.appendChild(desc);
+    } else if (type === 'video') {
+        modalTitle.textContent = 'Cell Division Video';
+        modalBody.innerHTML = `
+            <video controls autoplay>
+                <source src="${src}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        `;
+    }
+
+    // Display the modal
+    modal.style.display = 'flex';
+
+    // Close modal when clicking outside (one-time event listener to avoid duplicates)
+    modal.onclick = function(e) {
+        if (e.target === modal) {
+            closeModal(modalId);
+        }
+    };
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    const modalBody = modal.querySelector('.modal-body');
+    modal.style.display = 'none';
+    modalBody.innerHTML = ''; // Clear content
+    modal.onclick = null; // Remove event listener to prevent memory leaks
+}
+
+// Ensure script runs after DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Verify all card images have click events
+    const cards = document.querySelectorAll('.card-img');
+    cards.forEach(card => {
+        if (!card.onclick) {
+            console.warn('Card missing onclick handler:', card);
+        }
+    });
+});
+</script>
+
     <section id="interphase-phases" class="phases-section">
         <div class="container">
             <h2 class="section-title">Three Phases of Interphase</h2>
@@ -272,9 +356,11 @@ function closeModal(modalId) {
     
     <section id="mitosis">
         <div class="container">
-            <h2 class="section-title">Mitosis: Cell Division for Growth and Repair</h2>
-            <p>Mitosis is the process by which somatic (body) cells divide to produce two identical daughter cells. This ensures that each new cell receives an exact copy of the parent cell's genetic material.</p>
-            
+            <h2 class="section-title">Mitosis</h2>
+            <p style="text-align: justify; margin-bottom: 30px;">Mitosis is a type of cell division in which two identical daughter cells are produced from a single parent cell. Mitosis involves four phases: prophase, metaphase, anaphase, telophase. At the end of telophase, two diploid cells containing the same set of chromosomes from the parent cell are produced.
+	Cytokinensis is the physical division of the cytoplasm of a  parent cell into two. This process occurs concurrently with the latter stages of mitosis.  In animal cells, cytokinesis involves the formation of a cleavage furrow , which pinches off or divides the cell into two. In plants, instead of being cleaved, a cell plate forms between the two nuclei. The cell plate enlarges and elongates until it merges with the cell walls, and eventually forms a new cell wall.</p>
+              <h2 class="section-title">Mitosis: Cell Division for Growth and Repair</h2>
+              <p style="text-align: justify;">Mitosis is the process by which somatic (body) cells divide to produce two identical daughter cells. This ensures that each new cell receives an exact copy of the parent cell's genetic material</p>
             <div class="mitosis-stages">
                 <div class="stage mitosis">
                     <h4><span class="stage-icon">1</span>Prophase</h4>
@@ -297,44 +383,120 @@ function closeModal(modalId) {
                 </div>
             </div>
         </div>
-        <section id="mitosis-visual-guide" class="vs-guide-section">
-            <div class="container">
-                <h2 class="section-title">Mitosis Visual Guide</h2>
-                
-                <div class="vs-guide-gallery">
-                    <!-- Prophase -->
-                    <div class="vs-guide-card">
-                        <div class="vs-guide-number">1</div>
-                        <div class="vs-guide-image prophase-img"></div>
-                        <div class="vs-guide-name">Prophase</div>
-                    </div>
-                    
-                    <!-- Metaphase -->
-                    <div class="vs-guide-card">
-                        <div class="vs-guide-number">2</div>
-                        <div class="vs-guide-image metaphase-img"></div>
-                        <div class="vs-guide-name">Metaphase</div>
-                    </div>
-                    
-                    <!-- Anaphase -->
-                    <div class="vs-guide-card">
-                        <div class="vs-guide-number">3</div>
-                        <div class="vs-guide-image anaphase-img"></div>
-                        <div class="vs-guide-name">Anaphase</div>
-                    </div>
-                    
-                    <!-- Telophase -->
-                    <div class="vs-guide-card">
-                        <div class="vs-guide-number">4</div>
-                        <div class="vs-guide-image telophase-img"></div>
-                        <div class="vs-guide-name">Telophase</div>
-                    </div>
-                </div>
+
+<section id="mitosis-visual-guide" class="vs-guide-section">
+    <div class="container">
+        <h2 class="section-title">Mitosis Visual Guide</h2>
+        
+        <div class="vs-guide-gallery">
+            <!-- Prophase -->
+            <div class="vs-guide-card" onclick="openModal('assets/prophase.jpg', 'image', 'imageModal', 'Prophase: Chromatin condenses into chromosomes, nuclear membrane breaks down, spindle fibers form.')">
+                <div class="vs-guide-number">1</div>
+                <div class="vs-guide-image prophase-img"></div>
+                <div class="vs-guide-name">Prophase</div>
             </div>
-        </section>
-    </section>
-    
-    
+            
+            <!-- Metaphase -->
+            <div class="vs-guide-card" onclick="openModal('assets/metaphase.jpg', 'image', 'imageModal', 'Metaphase: Chromosomes align at the cell\'s equator, attached to spindle fibers at their centromeres.')">
+                <div class="vs-guide-number">2</div>
+                <div class="vs-guide-image metaphase-img"></div>
+                <div class="vs-guide-name">Metaphase</div>
+            </div>
+            
+            <!-- Anaphase -->
+            <div class="vs-guide-card" onclick="openModal('assets/anaphase.jpg', 'image', 'imageModal', 'Anaphase: Sister chromatids separate and move to opposite poles of the cell.')">
+                <div class="vs-guide-number">3</div>
+                <div class="vs-guide-image anaphase-img"></div>
+                <div class="vs-guide-name">Anaphase</div>
+            </div>
+            
+            <!-- Telophase -->
+            <div class="vs-guide-card" onclick="openModal('assets/telophase.jpg', 'image', 'imageModal', 'Telophase: Nuclear membranes reform, chromosomes decondense, cytokinesis divides the cytoplasm.')">
+                <div class="vs-guide-number">4</div>
+                <div class="vs-guide-image telophase-img"></div>
+                <div class="vs-guide-name">Telophase</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ensure Modal is Present (should already be in your HTML from previous fix) -->
+<div id="imageModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Mitosis Stage</h2>
+            <button class="close-btn" onclick="closeModal('imageModal')">×</button>
+        </div>
+        <div class="modal-body">
+            <!-- Content will be dynamically inserted here -->
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript (should already be in your code, but included here for completeness) -->
+<script>
+function openModal(src, type, modalId, description) {
+    const modal = document.getElementById(modalId);
+    const modalBody = modal.querySelector('.modal-body');
+    const modalTitle = document.getElementById('modalTitle');
+
+    // Clear previous content
+    modalBody.innerHTML = '';
+
+    if (type === 'image') {
+        modalTitle.textContent = description.split(':')[0];
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = description;
+        img.style.width = '100%';
+        img.style.borderRadius = '10px';
+
+        const desc = document.createElement('p');
+        desc.textContent = description;
+        desc.style.marginTop = '15px';
+        desc.style.textAlign = 'center';
+        desc.style.fontSize = '1.1rem';
+        desc.style.color = '#333';
+
+        modalBody.appendChild(img);
+        modalBody.appendChild(desc);
+    } else if (type === 'video') {
+        modalTitle.textContent = 'Cell Division Video';
+        modalBody.innerHTML = `
+            <video controls autoplay>
+                <source src="${src}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        `;
+    }
+
+    modal.style.display = 'flex';
+
+    modal.onclick = function(e) {
+        if (e.target === modal) {
+            closeModal(modalId);
+        }
+    };
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    const modalBody = modal.querySelector('.modal-body');
+    modal.style.display = 'none';
+    modalBody.innerHTML = '';
+    modal.onclick = null;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.vs-guide-card');
+    cards.forEach(card => {
+        if (!card.onclick) {
+            console.warn('Visual guide card missing onclick handler:', card);
+        }
+    });
+});
+</script>
+        
     <section id="meiosis">
         <div class="container">
             <h2 class="section-title">Meiosis: Production of Gametes</h2>

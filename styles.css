@@ -1343,22 +1343,22 @@ footer {
 
 /* Image placeholders - replace with your actual images */
 .prophase-img {
-    background-image: url('assets/pro.jpg');
+    background-image: url('assets/prophase.jpg');
     background-color: #e3f2fd; /* Fallback color */
 }
 
 .metaphase-img {
-    background-image: url('assets/meta.jpg');
+    background-image: url('assets/metaphase.jpg');
     background-color: #bbdefb;
 }
 
 .anaphase-img {
-    background-image: url('assets/ana.jpg');
+    background-image: url('assets/anaphase.jpg');
     background-color: #90caf9;
 }
 
 .telophase-img {
-    background-image: url('assets/telo.jpg');
+    background-image: url('assets/telophase.jpg');
     background-color: #64b5f6;
 }
 
