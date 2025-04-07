@@ -7,12 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Cell Division Explorer</h1>
-            <p class="subtitle">Understanding Mitosis and Meiosis</p>
-        </div>
-    </header>
+    
     
     <nav class="main-nav">
         <div class="nav-container">
@@ -50,7 +45,7 @@
 <div id="imageModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <h2>Cell Division Video</h2>
+            <h2></h2>
             <button class="close-btn" onclick="closeModal('imageModal')">&times;</button>
         </div>
         <div class="modal-body">
@@ -222,7 +217,7 @@ function openModal(src, type, modalId, description) {
         modalBody.appendChild(img);
         modalBody.appendChild(desc);
     } else if (type === 'video') {
-        modalTitle.textContent = 'Cell Division Video';
+        modalTitle.textContent = '';
         modalBody.innerHTML = `
             <video controls autoplay>
                 <source src="${src}" type="video/mp4">
@@ -461,7 +456,7 @@ function openModal(src, type, modalId, description) {
         modalBody.appendChild(img);
         modalBody.appendChild(desc);
     } else if (type === 'video') {
-        modalTitle.textContent = 'Cell Division Video';
+        modalTitle.textContent = '';
         modalBody.innerHTML = `
             <video controls autoplay>
                 <source src="${src}" type="video/mp4">
@@ -548,6 +543,211 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </section>
     
+<!-- Add this section after the existing meiosis section -->
+<!-- Add this section after the existing meiosis section -->
+<section id="meiosis-phases-guide-easytounderstand" class="meiosis-phases-guide">
+    <div class="container">
+        <h2 class="section-title">Meiosis Phases: Detailed Visual Guide</h2>
+        <p class="section-subtitle">Click on any image to view it larger with detailed description</p>
+        
+        <div class="meiosis-phase-container">
+            <!-- Interphase -->
+            <div class="phase-container interphase-container">
+                <h3 class="phase-container-title">Interphase: Preparation for Meiosis</h3>
+                <div class="phase-content-wrapper">
+                    <div class="phase-image-container" onclick="openMeiosisModal('assets/interphase-meiosis.jpg', 'Interphase: The preparatory phase before meiosis begins, consisting of G₁, S, and G₂ phases where the cell grows and duplicates its DNA.')">
+                        <img src="assets/interphase-meiosis.jpg" alt="Interphase in Meiosis" class="phase-image">
+                    </div>
+                    <div class="phase-description">
+                        <p>Before entering meiosis, cells undergo interphase with three distinct phases:</p>
+                        <div class="sub-phases">
+                            <div class="sub-phase">
+                                <h4>G₁ Phase</h4>
+                                <p>Cell growth, synthesis of RNA and proteins</p>
+                            </div>
+                            <div class="sub-phase">
+                                <h4>S Phase</h4>
+                                <p>DNA replication, chromosome duplication</p>
+                            </div>
+                            <div class="sub-phase">
+                                <h4>G₂ Phase</h4>
+                                <p>Final preparation, synthesis of proteins needed for division</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Meiosis I -->
+            <div class="phase-container meiosis-one-container">
+                <h3 class="phase-container-title">Meiosis I: Reduction Division</h3>
+                
+                <div class="meiosis-phase-cards">
+                    <!-- Prophase I -->
+                    <div class="meiosis-phase-card">
+                        <div class="phase-number">1</div>
+                        <div class="phase-visual" onclick="openMeiosisModal('assets/prophase1-meiosis.jpg', 'Prophase I: Chromosomes condense and homologous pairs form tetrads. Crossing over occurs at chiasmata, exchanging genetic material between non-sister chromatids. Nuclear envelope breaks down.')">
+                            <img src="assets/prophase1-meiosis.jpg" alt="Prophase I" class="phase-img">
+                        </div>
+                        <div class="phase-details">
+                            <h4>Prophase I</h4>
+                            <ul>
+                                <li>Chromosomes condense and pair up (synapsis)</li>
+                                <li>Crossing over occurs at chiasmata</li>
+                                <li>Nuclear envelope breaks down</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Metaphase I -->
+                    <div class="meiosis-phase-card">
+                        <div class="phase-number">2</div>
+                        <div class="phase-visual" onclick="openMeiosisModal('assets/metaphase1-meiosis.jpg', 'Metaphase I: Homologous chromosome pairs (tetrads) align at the metaphase plate. Independent assortment occurs, creating genetic variation. Spindle fibers attach to centromeres.')">
+                            <img src="assets/metaphase1-meiosis.jpg" alt="Metaphase I" class="phase-img">
+                        </div>
+                        <div class="phase-details">
+                            <h4>Metaphase I</h4>
+                            <ul>
+                                <li>Homologous pairs align at metaphase plate</li>
+                                <li>Independent assortment occurs</li>
+                                <li>Spindle fibers attach to centromeres</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Anaphase I -->
+                    <div class="meiosis-phase-card">
+                        <div class="phase-number">3</div>
+                        <div class="phase-visual" onclick="openMeiosisModal('assets/anaphase1-meiosis.jpg', 'Anaphase I: Homologous chromosomes separate and move to opposite poles. Sister chromatids remain attached at their centromeres. This reduces the chromosome number by half.')">
+                            <img src="assets/anaphase1-meiosis.jpg" alt="Anaphase I" class="phase-img">
+                        </div>
+                        <div class="phase-details">
+                            <h4>Anaphase I</h4>
+                            <ul>
+                                <li>Homologous chromosomes separate</li>
+                                <li>Sister chromatids remain attached</li>
+                                <li>Chromosomes move to opposite poles</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Telophase I & Cytokinesis -->
+                    <div class="meiosis-phase-card">
+                        <div class="phase-number">4-5</div>
+                        <div class="phase-visual" onclick="openMeiosisModal('assets/telophase1-meiosis.jpg', 'Telophase I & Cytokinesis: Nuclear envelopes reform around the chromosomes at each pole. Chromosomes may decondense. Cytoplasm divides (cytokinesis), forming two haploid daughter cells.')">
+                            <img src="assets/telophase1-meiosis.jpg" alt="Telophase I and Cytokinesis" class="phase-img">
+                        </div>
+                        <div class="phase-details">
+                            <h4>Telophase I & Cytokinesis</h4>
+                            <ul>
+                                <li>Nuclear envelopes reform</li>
+                                <li>Chromosomes decondense</li>
+                                <li>Cytoplasm divides forming two haploid cells</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Meiosis II -->
+            <div class="phase-container meiosis-two-container">
+                <h3 class="phase-container-title">Meiosis II: Equational Division</h3>
+                
+                <div class="meiosis-phase-cards">
+                    <!-- Prophase II -->
+                    <div class="meiosis-phase-card">
+                        <div class="phase-number">1</div>
+                        <div class="phase-visual" onclick="openMeiosisModal('assets/prophase2-meiosis.jpg', 'Prophase II: Chromosomes recondense in the two haploid cells. New spindle apparatus forms perpendicular to the first division axis. Nuclear envelope breaks down.')">
+                            <img src="assets/prophase2-meiosis.jpg" alt="Prophase II" class="phase-img">
+                        </div>
+                        <div class="phase-details">
+                            <h4>Prophase II</h4>
+                            <ul>
+                                <li>Chromosomes recondense</li>
+                                <li>Nuclear envelope breaks down</li>
+                                <li>Spindle apparatus forms</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Metaphase II -->
+                    <div class="meiosis-phase-card">
+                        <div class="phase-number">2</div>
+                        <div class="phase-visual" onclick="openMeiosisModal('assets/metaphase2-meiosis.jpg', 'Metaphase II: Chromosomes align single file at the equator (metaphase plate). Centromeres divide, separating sister chromatids. Spindle fibers attach to each chromosome.')">
+                            <img src="assets/metaphase2-meiosis.jpg" alt="Metaphase II" class="phase-img">
+                        </div>
+                        <div class="phase-details">
+                            <h4>Metaphase II</h4>
+                            <ul>
+                                <li>Chromosomes align single file at equator</li>
+                                <li>Centromeres divide</li>
+                                <li>Spindle fibers attach to each chromosome</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Anaphase II -->
+                    <div class="meiosis-phase-card">
+                        <div class="phase-number">3</div>
+                        <div class="phase-visual" onclick="openMeiosisModal('assets/anaphase2-meiosis.jpg', 'Anaphase II: Sister chromatids (now called chromosomes) separate and move to opposite poles. Each pole receives a complete set of chromosomes.')">
+                            <img src="assets/anaphase2-meiosis.jpg" alt="Anaphase II" class="phase-img">
+                        </div>
+                        <div class="phase-details">
+                            <h4>Anaphase II</h4>
+                            <ul>
+                                <li>Sister chromatids separate</li>
+                                <li>Chromatids (now chromosomes) move to poles</li>
+                                <li>Complete set of chromosomes at each pole</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Telophase II & Cytokinesis -->
+                    <div class="meiosis-phase-card">
+                        <div class="phase-number">4-5</div>
+                        <div class="phase-visual" onclick="openMeiosisModal('assets/telophase2-meiosis.jpg', 'Telophase II & Cytokinesis: Nuclear envelopes reform around the chromosomes at each pole. Chromosomes decondense. Cytoplasm divides (cytokinesis), resulting in four genetically unique haploid gametes.')">
+                            <img src="assets/telophase2-meiosis.jpg" alt="Telophase II and Cytokinesis" class="phase-img">
+                        </div>
+                        <div class="phase-details">
+                            <h4>Telophase II & Cytokinesis</h4>
+                            <ul>
+                                <li>Nuclear envelopes reform</li>
+                                <li>Chromosomes decondense</li>
+                                <li>Cytoplasm divides forming four haploid gametes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Final Result -->
+            <div class="meiosis-result-container">
+                <h3 class="result-title">Final Result of Meiosis</h3>
+                <div class="result-content">
+                    
+                    <div class="result-description">
+                        <p style="text-align: justify">Thus at the end of meiosis II, <strong>four non-identical, haploid daughter cells are formed, each having half chromosome number as the original parent cell.</strong></p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Meiosis Modal Structure -->
+<div id="meiosisModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="meiosisModalTitle">Meiosis Phase</h2>
+            <button class="close-btn" onclick="closeMeiosisModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="meiosisModalBody">
+            <!-- Content will be inserted here by JavaScript -->
+        </div>
+    </div>
+</div>
+
     <section id="comparison">
         <div class="container">
             <h2 class="section-title">Mitosis vs. Meiosis</h2>
@@ -865,6 +1065,99 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+// Meiosis Phases Guide Interaction
+document.addEventListener('DOMContentLoaded', function() {
+    const phaseCards = document.querySelectorAll('.meiosis-phase-card');
+    
+    phaseCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            // Add any interactive effects here if needed
+            this.style.zIndex = '10';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.zIndex = '1';
+        });
+    });
+    
+    // Smooth scrolling for section links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+// Meiosis Modal Functions
+function openMeiosisModal(src, description) {
+    const modal = document.getElementById('meiosisModal');
+    const modalBody = document.getElementById('meiosisModalBody');
+    const modalTitle = document.getElementById('meiosisModalTitle');
+
+    // Clear previous content
+    modalBody.innerHTML = '';
+
+    // Set title and create image and description elements
+    const phaseName = description.split(':')[0];
+    modalTitle.textContent = phaseName;
+    
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = phaseName;
+    img.style.width = '100%';
+    img.style.maxHeight = '60vh';
+    img.style.borderRadius = '8px';
+    img.style.objectFit = 'contain';
+
+    const desc = document.createElement('p');
+    desc.textContent = description;
+    desc.style.marginTop = '15px';
+    desc.style.padding = '0 1rem';
+    desc.style.textAlign = 'center';
+    desc.style.fontSize = '1.1rem';
+    desc.style.color = '#333';
+    desc.style.lineHeight = '1.6';
+
+    // Append elements to modal body
+    modalBody.appendChild(img);
+    modalBody.appendChild(desc);
+
+    // Display the modal
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+
+    // Close modal when clicking outside
+    modal.onclick = function(e) {
+        if (e.target === modal) {
+            closeMeiosisModal();
+        }
+    };
+}
+
+function closeMeiosisModal() {
+    const modal = document.getElementById('meiosisModal');
+    const modalBody = document.getElementById('meiosisModalBody');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+    modalBody.innerHTML = ''; // Clear content
+    modal.onclick = null; // Remove event listener
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeMeiosisModal();
+    }
+});
 </script>
+
 </body>
 </html>

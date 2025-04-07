@@ -1760,3 +1760,410 @@ footer {
         height: 180px;
     }
 }
+
+
+/* Meiosis Phases Guide */
+.meiosis-phases-guide {
+    background-color: #f8f9fa;
+    padding: 5rem 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+.meiosis-phase-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.phase-container {
+    margin-bottom: 4rem;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.phase-container-title {
+    color: #e74c3c;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.phase-container-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.interphase-container .phase-container-title {
+    color: #9b59b6;
+}
+
+.interphase-container .phase-container-title::after {
+    background-color: #9b59b6;
+}
+
+.meiosis-one-container .phase-container-title {
+    color: #e74c3c;
+}
+
+.meiosis-two-container .phase-container-title {
+    color: #3498db;
+}
+
+.phase-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.phase-image-container {
+    flex: 1;
+    min-width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.phase-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.phase-image:hover {
+    transform: scale(1.03);
+}
+
+.phase-description {
+    flex: 1;
+    min-width: 300px;
+}
+
+.sub-phases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.sub-phase {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #9b59b6;
+}
+
+.sub-phase h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.sub-phase p {
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.meiosis-phase-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.meiosis-phase-card {
+    background: #f8fafc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.meiosis-phase-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.phase-number {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 30px;
+    height: 30px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    z-index: 2;
+}
+
+.meiosis-one-container .phase-number {
+    background-color: #e74c3c;
+}
+
+.meiosis-two-container .phase-number {
+    background-color: #3498db;
+}
+
+.phase-visual {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+}
+
+.phase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.meiosis-phase-card:hover .phase-img {
+    transform: scale(1.05);
+}
+
+.phase-details {
+    padding: 1.5rem;
+}
+
+.phase-details h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.phase-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.phase-details li {
+    padding: 0.3rem 0;
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.phase-details li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.meiosis-result-container {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-top: 2rem;
+}
+
+.result-title {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.result-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #e74c3c, #3498db);
+}
+
+.result-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.result-visual {
+    flex: 1;
+    min-width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.result-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.result-description {
+    flex: 1;
+    min-width: 300px;
+}
+
+.result-description p {
+    color: #2c3e50;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.key-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+.feature i {
+    color: #e74c3c;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .meiosis-phase-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .meiosis-phases-guide {
+        padding: 3rem 0;
+    }
+    
+    .phase-container {
+        padding: 1.5rem;
+    }
+    
+    .phase-visual {
+        height: 150px;
+    }
+    
+    .sub-phases {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .meiosis-phase-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .phase-visual {
+        height: 200px;
+    }
+}
+/* Meiosis Modal Styles */
+#meiosisModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+#meiosisModal .modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+#meiosisModal .modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+#meiosisModal .modal-header h2 {
+    margin: 0;
+    color: #e74c3c;
+    font-size: 1.5rem;
+}
+
+#meiosisModal .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: #888;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#meiosisModal .close-btn:hover {
+    color: #e74c3c;
+}
+
+#meiosisModal .modal-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* Make images clickable */
+.phase-image-container,
+.phase-visual,
+.result-visual {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.phase-image-container:hover,
+.phase-visual:hover,
+.result-visual:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    #meiosisModal .modal-content {
+        width: 95%;
+        max-height: 85vh;
+    }
+    
+    #meiosisModal .modal-header h2 {
+        font-size: 1.3rem;
+    }
+}
